@@ -8,15 +8,10 @@ import { AgGridAngular } from 'ag-grid-angular';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild("agGrid",{ static: false}) agGrid!:AgGridAngular;
-  title = 'my-app';
+  //@ViewChild("agGrid",{ static: false}) agGrid!:AgGridAngular;
+  title = 'AngularAPI';
 
- /* columnDefs = [
-    { headerName: "Country", field: "country", sortable: true, filter: true },
-    { headerName: "Name", field: "name", sortable: true, filter: true, checkboxSelection: true},
-    { headerName: "Web", field: "web_pages", sortable: true, filter: true}
-  ];*/
-  columnDefs = [
+  /*columnDefs = [
     { headerName: "Country", field: "country", rowGroup: true },
     { headerName: "Name", field: "name", sortable: true, filter: true, checkboxSelection: true},
     { headerName: "Web", field: "web_pages", sortable: true, filter: true}
@@ -47,6 +42,6 @@ export class AppComponent {
     const selectedData = selectedNodes.map(node => node.data);
     const selectDataStringPresentation = selectedData.map(node => node.name + ' ' + node.web_pages).join(", ");
     alert(selectDataStringPresentation);
-  }
+  }*/
 
 }

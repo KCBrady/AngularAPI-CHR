@@ -1,0 +1,86 @@
+<div class="container">  
+    <div class="row">  
+        <div class="col-md-8">  
+            <h1>  
+                <span class="badge badge-dark" id="header">Deal Create</span>  
+            </h1>  
+            <hr>  
+                <form [formGroup]="dealForm" (ngSubmit)="onSubmit()">  
+                    <div class="row">  
+                        <div class="col-md-4">  
+                            <label for="firstName">deal Id:</label>  
+                        </div>  
+                        <div class="col-md-6">  
+                            <input type="text" class="form-control" formControlName="dealName">  
+                                <div *ngIf="submitted && dealForm.controls.dealName.errors" class="error">  
+                                    <div *ngIf="dealForm.controls.dealName.errors.required">First name is required</div>  
+                                </div>  
+                            </div>  
+                        </div>  
+                        <div class="row">  
+                            <div class="col-md-4">  
+                                <label for="firstName">EmailId:</label>  
+                            </div>  
+                            <div class="col-md-6">  
+                                <input type="text" class="form-control" formControlName="EmailId">  
+                                    <div *ngIf="submitted && dealForm.controls.EmailId.errors" class="error">  
+                                        <div *ngIf="dealForm.controls.EmailId.errors.required">EmailId is required</div>  
+                                    </div>  
+                                </div>  
+                            </div>  
+                            <div class="row">  
+                                <div class="col-md-4">  
+                                    <label for="firstName">Gender:</label>  
+                                </div>  
+                                <div class="col-md-6">  
+                                    <input type="email" class="form-control" formControlName="Gender">  
+                                        <div *ngIf="submitted && dealForm.controls.Gender.errors" class="error">  
+                                            <div *ngIf="dealForm.controls.Gender.errors.required">Gender is required</div>  
+                                        </div>  
+                                    </div>  
+                                </div>  
+                                <div class="row">  
+                                    <div class="col-md-4">  
+                                        <label for="firstName">Address:</label>  
+                                    </div>  
+                                    <div class="col-md-6">  
+                                        <input type="text" class="form-control" formControlName="Address">  
+                                            <div *ngIf="submitted && dealForm.controls.Address.errors" class="error">  
+                                                <div *ngIf="dealForm.controls.Address.errors.required">Address is required</div>  
+                                            </div>  
+                                        </div>  
+                                    </div>  
+                                    <div class="row">  
+                                        <div class="col-md-4">  
+                                            <label for="firstName">Mobile:</label>  
+                                        </div>  
+                                        <div class="col-md-6">  
+                                            <input type="text" class="form-control" formControlName="MobileNo">  
+                                                <div *ngIf="submitted && dealForm.controls.MobileNo.errors" class="error">  
+                                                    <div *ngIf="dealForm.controls.MobileNo.errors.required">Mobile number is required</div>  
+                                                </div>  
+                                            </div>  
+                                        </div>  
+                                        <div class="row">  
+                                            <div class="col-md-4">  
+                                                <label for="firstName">Pin Code:</label>  
+                                            </div>  
+                                            <div class="col-md-6">  
+                                                <input type="text" class="form-control" formControlName="PinCode">  
+                                                    <div *ngIf="submitted && dealForm.controls.MobileNo.errors" class="error">  
+                                                        <div *ngIf="dealForm.controls.PinCode.errors.required">PinCode is required</div>  
+                                                    </div>  
+                                                </div>  
+                                            </div>  
+                                            <div class="row">  
+                                                <div class="col-md-4"></div>  
+                                                <div class="col-md-4">  
+                                                    <button type="submit" class="btn btn-primary">Submit</button>     
+  
+                                                    <input type="button" class="btn btn-warning" (click)="Cancel()" value="Cancel">  
+                                                    </div>  
+                                                </div>  
+                                            </form>  
+                                        </div>  
+                                    </div>  
+                                </div> 
