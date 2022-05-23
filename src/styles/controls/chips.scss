@@ -1,0 +1,54 @@
+@import '../variables.scss';
+
+.bcr-chip-list {
+  .mat-chip-list-wrapper {
+    .mat-chip {
+      margin: 0 20px 0 0;
+      cursor: pointer;
+      padding: 5px 20px 5px 5px;
+      background-color: #fff;
+      border: 1px solid $chips-disabled-font-color;
+      color: $chips-disabled-font-color;
+
+      .bcr-chip-icon {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+
+      &.mat-standard-chip {
+        &::after {
+          background-color: $bcr-primary-color;
+        }
+
+        &:hover::after,
+        &:focus::after {
+          opacity: 0;
+        }
+      }
+
+      &.mat-primary:hover {
+        background-color: rgba($color: $bcr-primary-color, $alpha: .2);
+        border: 1px solid $bcr-primary-color;
+        color: $chips-active-font-color;
+      }
+    }
+
+    .mat-chip.mat-chip-selected {
+      background-color: rgba($color: $bcr-primary-color, $alpha: .2);
+      border: 1px solid $bcr-primary-color;
+      color: $chips-active-font-color;
+      opacity: 1;
+
+      .bcr-chip-icon::after {
+        color: #fff;
+        content: 'check';
+        font-family: 'Material Icons';
+        font-size: 20px;
+        line-height: 1;
+      }
+    }
+  }
+}

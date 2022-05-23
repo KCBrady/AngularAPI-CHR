@@ -13,13 +13,15 @@ import { AddDealComponent } from './deal/add-deal/add-deal.component';
 import { fromEventPattern } from 'rxjs';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DealSsrmComponent } from './deal-ssrm/deal-ssrm.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DealComponent,
-    AddDealComponent
+    AddDealComponent,
+    DealSsrmComponent
   ],
   imports: [BrowserModule, 
     FormsModule, 

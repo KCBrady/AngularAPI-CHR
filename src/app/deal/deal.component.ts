@@ -1,17 +1,27 @@
+import 'ag-grid-enterprise';
+
+import { Actions, Select, Store, ofActionDispatched } from '@ngxs/store';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import {  
   Component,  
-  OnInit  
+  OnInit,
+  OnDestroy 
 } from '@angular/core';  
 import { Deal} from '../deal';  
-import { ColDef, GridApi, ColumnApi } from 'ag-grid-community';  
+import { ColDef, GridApi, ColumnApi, CellValueChangedEvent, GridReadyEvent, SelectionChangedEvent } from 'ag-grid-community';  
 import { DealService } from '../services/deal.service';  
 import { Router} from '@angular/router';  
 import { ToastrService} from 'ngx-toastr'; 
+
+import { filter, take } from 'rxjs/operators';
+
+
  
 @Component({  
   selector: 'app-deal',  
   templateUrl: './deal.component.html',  
-  styleUrls: ['./deal.component.css']  
+  styleUrls: ['./deal.component.scss']  
 })  
 
 export class DealComponent implements OnInit {  
@@ -22,24 +32,46 @@ export class DealComponent implements OnInit {
   // gridApi and columnApi  
   private api!: GridApi;  
   private columnApi!: ColumnApi;  
+  public rowModelType: any;
+  public serverSideStoreType: any;
+  public paginationPageSize: any;
+  public pagination: any;
+  public autoGroupColumnDef: any;
 
   constructor(private dealService: DealService, private router: Router, private toastr: ToastrService) 
   { 
     this.columnDefs = this.createColumnDefs();  
+    this.rowModelType = 'serverSide';
+    this.serverSideStoreType = 'partial';
+    //this.pagination = 'true';
+    this.autoGroupColumnDef = {
+      headerName: 'Group',
+      minWidth: 250,
+      field: 'counterparty',
+      filter: 'agSetColumnFilter',
+      filterParams: {
+        values: (params: { colDef: { field: any; }; success: (arg0: any) => any; }) => {
+          const field = params.colDef.field;
+          this.dealService.getValues(field).subscribe(values => params.success(values));
+        }
+      }
+    }
+
   } 
 
   ngOnInit(): void {
-    this.dealService.getDeals().subscribe(data => {  
-      this.deals = data
-    })
+      this.dealService.getDeals().subscribe(data => {  
+        this.deals = data
+      })
     }
 
-        // one grid initialisation, grap the APIs and auto resize the columns to fit the available space  
-        onGridReady(params: { api: GridApi; columnApi: ColumnApi; }): void {  
+      // one grid initialisation, grap the APIs and auto resize the columns to fit the available space  
+      onGridReady(params: { api: GridApi; columnApi: ColumnApi; }): void {  
           this.api = params.api;  
           this.columnApi = params.columnApi;  
           this.api.sizeColumnsToFit();  
-      }  
+      }
+      
       // create column definitions  
       private createColumnDefs() {  
           return [{  

@@ -1,0 +1,21 @@
+$offset: -10px;
+
+.bcr-arrow {
+  position: absolute;
+
+  &.arrow-up {
+    top: $offset;
+  }
+
+  &.arrow-right {
+    right: $offset;
+  }
+
+  &.arrow-down {
+    bottom: $offset;
+  }
+
+  &.arrow-left {
+    left: $offset;
+  }
+}

@@ -1,0 +1,147 @@
+@import 'controls/chips.scss';
+@import 'controls/hierarchical-dropdown.scss';
+@import 'controls/bcr-arrow.scss';
+@import 'controls/grid.scss';
+@import './variables.scss';
+
+.no-padding {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+  }
+
+  .mat-form-field-appearance-outline {
+
+    .mat-form-field-outline {
+      top: 0!important;
+    }
+
+    .mat-form-field-infix {
+      padding: 12px 0 10px 0;
+      top: 0;
+      margin: 0!important;
+      border-top-width: 0;
+
+      .mat-select-arrow-wrapper {
+        display: block!important;
+      }
+    }
+
+      .mat-form-field-flex {
+        margin-top: 0!important;
+      }
+  }
+  
+  .mat-drawer:not(.mat-drawer-side) {
+    box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.2)!important;
+  }
+
+  .mat-select-value-text {
+      color: $controls-selected-value-color!important;
+  }
+
+  .mat-drawer-container {
+    color: $basic-font-color;
+  }
+
+  .mat-drawer-content {
+    background-color: #F7F7F7!important;
+  }
+
+  .mat-form-field-outline {
+    background-color: #FFFFFF;
+    border-radius: 6px;
+  }
+
+  .mat-option {
+      color: $basic-font-color;
+  }
+
+
+  /* Material slider begin */
+.mat-accent .mat-slider-track-fill,
+.mat-accent .mat-slider-thumb,
+.mat-accent .mat-slider-thumb-label,
+.mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    border-color:  #C4C3C3;
+    background-color:  #C4C3C3;
+}
+
+.mat-slider-horizontal {
+
+  .mat-slider-wrapper {
+    height: 1px; 
+
+    .mat-slider-track-wrapper {
+     height: 1px; 
+
+      .mat-slider-track-background,
+      .mat-slider-track-fill {
+        height: 1px; 
+      }
+    }
+
+    .mat-slider-ticks-container,
+    .mat-slider-ticks {
+      height: 1px;    
+    }
+  }
+
+  .mat-slider-focus-ring,
+  .mat-slider-thumb {
+    border-color:  $bcr-primary-color!important;
+    background-color:  $bcr-primary-color!important;
+  }
+}
+  /* Material slider end */
+
+
+.mat-standard-chip:focus::after {
+    opacity: .16;
+}
+.mat-standard-chip:hover::after {
+    opacity: 0.12;
+}
+
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $bcr-primary-color;
+}
+
+.mat-checkbox-ripple {
+  .mat-ripple-element {
+  background-color: $bcr-primary-color!important;
+  }
+}
+
+.mat-select-panel {
+  max-height: 400px!important;  
+}
+
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: inherit!important;
+}
+
+.ag-header-row {
+  &.ag-header-row-column {
+    background-color: $gray-50;
+  }
+  &.ag-header-row-floating-filter {
+    background-color: $gray-50;
+  }
+}
+
+.ag-layout-auto-height {
+  .ag-center-cols-clipper {
+    min-height: 60px;
+  }
+}
+
+.mat-datepicker-toggle-active {
+  color: $bcr-primary-color;
+}
+
+.mat-calendar-body-selected {
+  background-color: $bcr-primary-color;
+}

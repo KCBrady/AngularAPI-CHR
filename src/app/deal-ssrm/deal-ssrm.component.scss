@@ -1,0 +1,41 @@
+@import "../../../src/styles/styles.scss";
+
+:host {
+  flex: 1 1 auto;
+  margin: 20px 0 20px;
+}
+
+.chr-ag-grid {
+  min-height: 200px;
+  height: 100%;
+  width: 100%;
+}
+
+:host .ag-theme-material {
+  &::ng-deep {
+    .ag-header-cell[col-id^="opt"],
+    .ag-body-viewport [col-id^="opt"] {
+      display: flex;
+      justify-content: center;
+    }
+
+    .ag-header-cell[col-id^="menu"],
+    .ag-body-viewport [col-id^="menu"] {
+      display: flex;
+      justify-content: center;
+    }
+
+    .unapproved-deals {
+      background-color: grey;
+    }
+
+    .ag-status-bar {
+    border-left: 0px;
+    }
+
+    .ag-cell-value.twoDecimalPlaces {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

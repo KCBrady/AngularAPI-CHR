@@ -1,7 +1,7 @@
-<div class="container">  
-    <h2 class="header">AG Grid CRUD Operations Example in Angular</h2>  
+
+    <h2 class="header">Demo Credit Hold and Release AgGrid Application</h2>  
     <hr>  
-        <div class="row">  
+        <!--<div class="row">  
             <div class="col-md-8"></div>  
             <div class="col-md-4">  
                 <button class="btn btn-sm btn-success button" (click)="Add()">Add Deal</button>    
@@ -10,13 +10,15 @@
   
                 <button class="btn btn-sm btn-danger" (click)="deleteDeal()">Delete Deal(s)</button>  
             </div>  
-        </div>  
-        <br>  
+        </div>  -->
             <ag-grid-angular 
-                style="width: 100%; height: 200px;" 
-                class="ag-theme-blue" 
-                (gridReady)="onGridReady($event)"  
+                #agGrid
+                style="width: 100%; height: 800px;"  
+                [rowData]="deals"
+                class="ag-theme-alpine-dark"
                 [columnDefs]="columnDefs" 
-                [rowData]="deals" ></ag-grid-angular>  
-                
-        </div>  
+                [autoGroupColumnDef]="autoGroupColumnDef"
+                [enableRangeSelection]="true" 
+                [rowSelection]="'multiple'"
+                (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
