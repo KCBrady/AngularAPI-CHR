@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 
@@ -11,6 +11,9 @@ export class AppComponent {
   //@ViewChild("agGrid",{ static: false}) agGrid!:AgGridAngular;
   title = 'AngularAPI';
 
+
+  
+  
   /*columnDefs = [
     { headerName: "Country", field: "country", rowGroup: true },
     { headerName: "Name", field: "name", sortable: true, filter: true, checkboxSelection: true},

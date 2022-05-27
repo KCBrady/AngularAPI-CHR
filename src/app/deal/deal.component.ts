@@ -9,6 +9,7 @@ import {
   OnDestroy 
 } from '@angular/core';  
 import { Deal} from '../deal';  
+
 import { ColDef, GridApi, ColumnApi, CellValueChangedEvent, GridReadyEvent, SelectionChangedEvent } from 'ag-grid-community';  
 import { DealService } from '../services/deal.service';  
 import { Router} from '@angular/router';  
@@ -16,13 +17,15 @@ import { ToastrService} from 'ngx-toastr';
 
 import { filter, take } from 'rxjs/operators';
 
-
+import { GridChartsModule } from "@ag-grid-enterprise/charts";
  
 @Component({  
   selector: 'app-deal',  
   templateUrl: './deal.component.html',  
   styleUrls: ['./deal.component.scss']  
 })  
+
+
 
 export class DealComponent implements OnInit {  
   // row data and column definitions  
@@ -38,12 +41,12 @@ export class DealComponent implements OnInit {
   public pagination: any;
   public autoGroupColumnDef: any;
 
+
   constructor(private dealService: DealService, private router: Router, private toastr: ToastrService) 
   { 
     this.columnDefs = this.createColumnDefs();  
-    this.rowModelType = 'serverSide';
     this.serverSideStoreType = 'partial';
-    //this.pagination = 'true';
+
     this.autoGroupColumnDef = {
       headerName: 'Group',
       minWidth: 250,
@@ -56,6 +59,18 @@ export class DealComponent implements OnInit {
         }
       }
     }
+    const gridOptions = {
+      statusBar: {
+          statusPanels: [
+              {
+                  statusPanel: 'agTotalAndFilteredRowCountComponent',
+                  align: 'left',
+              }
+          ]
+      },
+  
+      // other grid options ...
+  }
 
   } 
 
@@ -69,7 +84,14 @@ export class DealComponent implements OnInit {
       onGridReady(params: { api: GridApi; columnApi: ColumnApi; }): void {  
           this.api = params.api;  
           this.columnApi = params.columnApi;  
-          this.api.sizeColumnsToFit();  
+          this.api.sizeColumnsToFit(); 
+          
+          console.log(params.api.getModel().isRowsToRender);
+
+          params.api.addEventListener('firstDataRendered', () => {
+            // On the firstDataRendered event rows will now be available
+            console.log(params.api.getModel().isRowsToRender);
+        });
       }
       
       // create column definitions  
